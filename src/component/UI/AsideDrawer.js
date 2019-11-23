@@ -1,5 +1,5 @@
-import { Add, FlashOn, Save, SaveAlt } from '@material-ui/icons';
-import { Backdrop, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Add, FlashOn, Info, KeyboardArrowRight, Save, SaveAlt, Settings } from '@material-ui/icons';
+import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 
 import PropTypes from 'prop-types';
 import React from 'react'
@@ -48,19 +48,34 @@ const AsideDrawer = (props) => {
 						<ListItemText primary="Import Swagger" />
 					</ListItem>
 					<ListItem button>
-						<ListItemIcon><Save /></ListItemIcon>
-						<ListItemText primary="Save for Postman" />
+						<ListItemIcon><SaveAlt /></ListItemIcon>
+						<ListItemText primary="Export postman" />
 					</ListItem>
 				</List>
 				<Divider></Divider>
 				<List>
 					<ListItem button>
-						<ListItemIcon><SaveAlt /></ListItemIcon>
+						<ListItemText primary="Select profile" />
+						<ListItemIcon><KeyboardArrowRight /></ListItemIcon>
+					</ListItem>
+					<ListItem button>
+						<ListItemIcon><Save /></ListItemIcon>
 						<ListItemText primary="Save profile" />
 					</ListItem>
 					<ListItem button>
 						<ListItemIcon><FlashOn /></ListItemIcon>
 						<ListItemText primary="Run Profile" />
+					</ListItem>
+				</List>
+				<Divider></Divider>
+				<List>
+					<ListItem button>
+						<ListItemIcon><Settings /></ListItemIcon>
+						<ListItemText primary="Settings" />
+					</ListItem>
+					<ListItem button>
+						<ListItemIcon><Info /></ListItemIcon>
+						<ListItemText primary="About" />
 					</ListItem>
 				</List>
 			</div>

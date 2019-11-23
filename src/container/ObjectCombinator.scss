@@ -1,13 +1,17 @@
 .ObjectCombinator {
 	display: flex;
-	flex-flow: column;
-	height: 100%;
+	flex-flow: row;
+	height: calc(100vh - 64px);
 
 	.ObjectCombinatorCockpit {
+		background-color: aqua;
+		height: inherit;
 		width: 70%;
 	}
 
 	.ObjectVisualizer {
+		background-color: burlywood;
+		height: inherit;
 		width: 30%;
 	}
 }

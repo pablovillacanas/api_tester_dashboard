@@ -2,7 +2,7 @@ import React from 'react'
 
 export const ObjectVisualizer = (props) => {
 	return (
-		<div className="ObjectVisuaizer">
+		<div className="ObjectVisualizer">
 
 		</div>
 	)
