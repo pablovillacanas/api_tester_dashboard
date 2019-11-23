@@ -27,49 +27,50 @@ const useStyles = makeStyles(theme => ({
 const AsideDrawer = (props) => {
 	const classes = useStyles();
 
+
 	return (
-		<Backdrop open={props.visible} onClick={props.toggleDrawer}>
-			<Drawer
-				className={classes.drawer}
-				open={props.visible}
-				classes={{ paper: classes.drawerPaper }}
-				anchor="left">
-				<div className={classes.menutitle}>
-					<Typography variant='h5'>API tester</Typography>
-					<Typography variant='h6'>dev version</Typography>
-				</div>
-				<div
-					className={classes.list}
-					role="presentation">
-					<List>
-						<ListItem button>
-							<ListItemIcon><Add /></ListItemIcon>
-							<ListItemText primary="Import Swagger" />
-						</ListItem>
-						<ListItem button>
-							<ListItemIcon><Save /></ListItemIcon>
-							<ListItemText primary="Save for Postman" />
-						</ListItem>
-					</List>
-					<Divider></Divider>
-					<List>
-						<ListItem button>
-							<ListItemIcon><SaveAlt /></ListItemIcon>
-							<ListItemText primary="Save profile" />
-						</ListItem>
-						<ListItem button>
-							<ListItemIcon><FlashOn /></ListItemIcon>
-							<ListItemText primary="Run Profile" />
-						</ListItem>
-					</List>
-				</div>
-			</Drawer >
-		</Backdrop >
+		<Drawer
+			className={classes.drawer}
+			open={props.visible}
+			classes={{ paper: classes.drawerPaper }}
+			onClose={props.toggleDrawer}
+			anchor="left">
+			<div className={classes.menutitle}>
+				<Typography variant='h5'>API tester</Typography>
+				<Typography variant='h6'>dev version</Typography>
+			</div>
+			<div
+				className={classes.list}
+				role="presentation">
+				<List>
+					<ListItem button>
+						<ListItemIcon><Add /></ListItemIcon>
+						<ListItemText primary="Import Swagger" />
+					</ListItem>
+					<ListItem button>
+						<ListItemIcon><Save /></ListItemIcon>
+						<ListItemText primary="Save for Postman" />
+					</ListItem>
+				</List>
+				<Divider></Divider>
+				<List>
+					<ListItem button>
+						<ListItemIcon><SaveAlt /></ListItemIcon>
+						<ListItemText primary="Save profile" />
+					</ListItem>
+					<ListItem button>
+						<ListItemIcon><FlashOn /></ListItemIcon>
+						<ListItemText primary="Run Profile" />
+					</ListItem>
+				</List>
+			</div>
+		</Drawer >
 	)
 }
 
 AsideDrawer.propTypes = {
-	visible: PropTypes.bool.isRequired
+	visible: PropTypes.bool.isRequired,
+	toggleDrawer: PropTypes.func.isRequired
 };
 
 export default AsideDrawer;
