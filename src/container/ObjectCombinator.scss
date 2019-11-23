@@ -1,0 +1,13 @@
+.ObjectCombinator {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+
+	.ObjectCombinatorCockpit {
+		width: 70%;
+	}
+
+	.ObjectVisualizer {
+		width: 30%;
+	}
+}

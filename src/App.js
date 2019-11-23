@@ -1,14 +1,22 @@
 import './App.css';
 
+import React, { useState } from 'react';
+
 import AsideDrawer from './component/UI/AsideDrawer.js'
-import React from 'react';
+import ObjectCombinator from './container/ObjectCombinator.js'
 import SimpleAppBar from './component/UI/SimpleAppBar.js'
 
-function App() {
+const App = () => {
+
+  const [asideDrawerVisible, setAsideDrawerVisible] = useState(true)
+
+  const toggleDrawer = () => setAsideDrawerVisible(!asideDrawerVisible)
+
   return (
     <div className="App">
-      <SimpleAppBar></SimpleAppBar>
-      <AsideDrawer></AsideDrawer>
+      <SimpleAppBar toggleDrawer={toggleDrawer}></SimpleAppBar>
+      <AsideDrawer toggleDrawer={toggleDrawer} visible={asideDrawerVisible}></AsideDrawer>
+      <ObjectCombinator></ObjectCombinator>
     </div>
   );
 }
