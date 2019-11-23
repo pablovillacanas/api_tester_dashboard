@@ -8,7 +8,7 @@ import SimpleAppBar from './component/UI/SimpleAppBar.js'
 
 const App = () => {
 
-  const [asideDrawerVisible, setAsideDrawerVisible] = useState(true)
+  const [asideDrawerVisible, setAsideDrawerVisible] = useState(false)
 
   const toggleDrawer = () => setAsideDrawerVisible(!asideDrawerVisible)
 

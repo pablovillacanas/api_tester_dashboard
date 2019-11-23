@@ -1,3 +1,5 @@
+import './ObjectCombinatorCockpit.scss'
+
 import React from 'react'
 
 const ObjectCombinatorCockpit = (props) => {
