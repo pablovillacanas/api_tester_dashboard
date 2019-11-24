@@ -12,7 +12,7 @@ const ObjectCombinator = props => {
 	const [selectedObject, setSelectedObject] = useState({})
 
 	const alerta = (obj) => {
-		alert(obj)
+		//TODO pass to table component to renderize it
 	}
 
 	return (
