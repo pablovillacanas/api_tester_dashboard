@@ -1,6 +1,6 @@
 import './ObjectEditor.scss'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Button } from '@material-ui/core';
 import JSONInput from 'react-json-editor-ajrm';
@@ -15,10 +15,6 @@ const useStyles = makeStyles(theme => ({
 
 export const ObjectEditor = (props) => {
 
-	const [invalidJson, setInvalidJson] = useState(false)
-
-	const classes = useStyles();
-
 	const example = {
 		name: "Dogo",
 		age: 2,
@@ -27,6 +23,16 @@ export const ObjectEditor = (props) => {
 		childs: ['Max', 'Deb'],
 		custom: { color: 'black' }
 	}
+
+	var jsonObj;
+
+	useEffect(() => {
+		//Trigger the load of JsonObject in the editors prop
+		let element = document.getElementById('json_editor');
+		element.focus()
+	}, [])
+
+	const classes = useStyles();
 
 	return (
 		<div className='ObjectEditor'>
@@ -37,11 +43,17 @@ export const ObjectEditor = (props) => {
 				color='darktheme'
 				width='100%'
 				height='100%'
+				onChange={(obj) => jsonObj = (obj.jsObject)}
 			/>
-			<Button disabled={invalidJson} className={classes.root} variant="contained" color="primary">
+			<Button
+				onClick={() => {
+					props.alerta(jsonObj)
+				}}
+				className={classes.root} variant="contained" color="primary">
 				Construct object form
 			</Button>
 		</div >
+
 	)
 }
 

@@ -11,11 +11,17 @@ const ObjectCombinator = props => {
 	const [repository, setRepository] = useState([])
 	const [selectedObject, setSelectedObject] = useState({})
 
+	const alerta = (obj) => {
+		alert(obj)
+	}
+
 	return (
 		<div className="ObjectCombinator">
 			<ObjectRepository selectedObject={selectedObject} objects={repository}></ObjectRepository>
 			<ObjectCombinatorCockpit selectedObject={selectedObject}></ObjectCombinatorCockpit>
-			<ObjectEditor selectedObject={selectedObject}></ObjectEditor>
+			<ObjectEditor alerta={(obj) => {
+				alerta(obj); console.log("ay");
+			}} selectedObject={selectedObject}></ObjectEditor>
 		</div>
 	)
 }

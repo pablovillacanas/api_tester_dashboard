@@ -48,7 +48,7 @@ const AsideDrawer = (props) => {
 					</ListItem>
 					<ListItem button>
 						<ListItemIcon><SaveAlt /></ListItemIcon>
-						<ListItemText primary="Export postman" />
+						<ListItemText primary="Export to Postman format" />
 					</ListItem>
 				</List>
 				<Divider></Divider>
