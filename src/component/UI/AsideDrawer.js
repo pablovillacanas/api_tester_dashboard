@@ -20,13 +20,12 @@ const useStyles = makeStyles(theme => ({
 	drawerPaper: {
 		width: drawerWidth,
 	},
-	toolbar: theme.mixins.toolbar,
+	toolbar: theme.mixins.toolbar
 }));
 
 
 const AsideDrawer = (props) => {
 	const classes = useStyles();
-
 
 	return (
 		<Drawer
