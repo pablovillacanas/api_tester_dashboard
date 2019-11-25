@@ -27,10 +27,14 @@ export const ObjectEditor = (props) => {
 	var jsonObj;
 
 	useEffect(() => {
-		//Trigger the load of JsonObject in the editors prop
+		chargeEditor();
+	}, [])
+
+	//Trigger the load of JsonObject in the editors prop
+	const chargeEditor = () => {
 		let element = document.getElementById('json_editor');
 		element.focus()
-	}, [])
+	}
 
 	const classes = useStyles();
 
@@ -47,7 +51,8 @@ export const ObjectEditor = (props) => {
 			/>
 			<Button
 				onClick={() => {
-					props.alerta(jsonObj)
+					props.analyze(jsonObj);
+					chargeEditor();
 				}}
 				className={classes.root} variant="contained" color="primary">
 				Construct object form

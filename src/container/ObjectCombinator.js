@@ -11,17 +11,17 @@ const ObjectCombinator = props => {
 	const [repository, setRepository] = useState([])
 	const [selectedObject, setSelectedObject] = useState({})
 
-	const alerta = (obj) => {
-		//TODO pass to table component to renderize it
+	const obj_analyze = (obj) => {
+		setSelectedObject(obj)
 	}
 
 	return (
 		<div className="ObjectCombinator">
 			<ObjectRepository selectedObject={selectedObject} objects={repository}></ObjectRepository>
 			<ObjectCombinatorCockpit selectedObject={selectedObject}></ObjectCombinatorCockpit>
-			<ObjectEditor alerta={(obj) => {
-				alerta(obj); console.log("ay");
-			}} selectedObject={selectedObject}></ObjectEditor>
+			<ObjectEditor
+				analyze={(obj) => obj_analyze(obj)}
+				selectedObject={selectedObject}></ObjectEditor>
 		</div>
 	)
 }

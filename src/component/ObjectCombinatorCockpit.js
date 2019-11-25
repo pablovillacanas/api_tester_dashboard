@@ -1,8 +1,9 @@
 import './ObjectCombinatorCockpit.scss'
 
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core'
+import React, { useEffect, useRef } from 'react'
 
-import React from 'react'
+import { attr_analyzer } from "combinatory_testing";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -18,9 +19,15 @@ const useStyles = makeStyles({
 const ObjectCombinatorCockpit = (props) => {
 	const classes = useStyles();
 
+	const attrs = useRef([])
+
+	useEffect(() => {
+		attrs.current = attr_analyzer(props.selectedObject);
+	}, [props.selectedObject])
+
 	return (
 		<div className="ObjectCombinatorCockpit">
-			{/* <Paper className={classes.root}>
+			<Paper className={classes.root}>
 				<Table className={classes.table} aria-label="simple table">
 					<TableHead>
 						<TableRow>
@@ -31,20 +38,21 @@ const ObjectCombinatorCockpit = (props) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{props.object.map(row => (
-							<TableRow key={row.name}>
-								<TableCell component="th" scope="row">
-									{row.name}
-								</TableCell>
-								<TableCell align="right">{row.calories}</TableCell>
-								<TableCell align="right">{row.calories}</TableCell>
-								<TableCell align="right">{row.fat}</TableCell>
-							</TableRow>
-						))}
+						{attrs.current.length > 0 ?
+							attrs.current.map(attr => (
+								<TableRow key={attr.name} >
+									<TableCell component="th" scope="row">
+										{attr.name}
+									</TableCell>
+									<TableCell align="right">{attr.defaultValue}</TableCell>
+									<TableCell align="right">{attr.type}</TableCell>
+									<TableCell align="right">{attr.required}</TableCell>
+								</TableRow>
+							)) : null}
 					</TableBody>
 				</Table>
-			</Paper> */}
-		</div>
+			</Paper>
+		</div >
 	)
 }
 
