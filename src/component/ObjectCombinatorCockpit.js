@@ -16,6 +16,19 @@ const useStyles = makeStyles({
 	},
 });
 
+const drawRows = (attrs) => {
+	return attrs.map(attr => (
+	<TableRow key={attr.name} >
+		<TableCell component="th" scope="row">
+			{attr.name}
+		</TableCell>
+		<TableCell align="left">{JSON.stringify(attr.defaultValue)}</TableCell>
+		<TableCell align="left">{attr.type}</TableCell>
+		<TableCell align="left">{attr.required}</TableCell>
+	</TableRow>
+	))
+}
+
 const ObjectCombinatorCockpit = (props) => {
 	const classes = useStyles();
 
@@ -33,22 +46,13 @@ const ObjectCombinatorCockpit = (props) => {
 						<TableRow>
 							<TableCell>Attribute name</TableCell>
 							<TableCell>Default value</TableCell>
-							<TableCell align="right">Type</TableCell>
-							<TableCell align="right">Required</TableCell>
+							<TableCell align="left">Type</TableCell>
+							<TableCell align="left">Required</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
 						{attrs.current.length > 0 ?
-							attrs.current.map(attr => (
-								<TableRow key={attr.name} >
-									<TableCell component="th" scope="row">
-										{attr.name}
-									</TableCell>
-									<TableCell align="right">{attr.defaultValue}</TableCell>
-									<TableCell align="right">{attr.type}</TableCell>
-									<TableCell align="right">{attr.required}</TableCell>
-								</TableRow>
-							)) : null}
+							drawRows(attrs.current) : null}
 					</TableBody>
 				</Table>
 			</Paper>
